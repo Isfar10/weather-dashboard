@@ -77,3 +77,4 @@ async function fetchForecast(lat, lon) {
   }
 }
 
+
