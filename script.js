@@ -7,7 +7,6 @@ async function getWeatherByCity() {
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${apiKey}&units=metric`;
   fetchWeather(url);
 }
-
 async function fetchWeather(url) {
   const res = await fetch(url);
   const data = await res.json();
@@ -28,8 +27,6 @@ function displayWeather(data) {
   document.getElementById("humidity").textContent = `💧 Humidity: ${data.main.humidity}%`;
   document.getElementById("wind").textContent = `💨 Wind: ${data.wind.speed} m/s`;
   document.getElementById("icon").src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-
-
   const condition = data.weather[0].main.toLowerCase();
   if (condition.includes("cloud")) {
     document.body.style.background = "linear-gradient(to right, #bdc3c7, #2c3e50)";
