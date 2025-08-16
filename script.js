@@ -1,4 +1,4 @@
-const apiKey = "YOUR_API_KEY"; // 🔑 Get from https://openweathermap.org/api
+const apiKey = "18a3093fb68f6c1bead99825ac8034a1"; // 🔑 Get from https://openweathermap.org/api
 
 async function getWeatherByCity() {
   const city = document.getElementById("cityInput").value;
@@ -76,3 +76,4 @@ async function fetchForecast(lat, lon) {
     document.getElementById("forecast").appendChild(div);
   }
 }
+
