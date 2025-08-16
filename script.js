@@ -1,25 +1,11 @@
 const apiKey = "18a3093fb68f6c1bead99825ac8034a1"; 
 
 async function getWeatherByCity() {
-  const city = document.getElementById("cityInput").value;
+  let city = document.getElementById("cityInput").value.trim();
   if (!city) return alert("Please enter a city!");
 
-  fetchWeather(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
-}
-
-function getWeatherByLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      pos => {
-        const lat = pos.coords.latitude;
-        const lon = pos.coords.longitude;
-        fetchWeather(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`);
-      },
-      () => alert("Location access denied.")
-    );
-  } else {
-    alert("Geolocation not supported.");
-  }
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${apiKey}&units=metric`;
+  fetchWeather(url);
 }
 
 async function fetchWeather(url) {
@@ -42,6 +28,8 @@ function displayWeather(data) {
   document.getElementById("humidity").textContent = `💧 Humidity: ${data.main.humidity}%`;
   document.getElementById("wind").textContent = `💨 Wind: ${data.wind.speed} m/s`;
   document.getElementById("icon").src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+
+
   const condition = data.weather[0].main.toLowerCase();
   if (condition.includes("cloud")) {
     document.body.style.background = "linear-gradient(to right, #bdc3c7, #2c3e50)";
@@ -62,6 +50,7 @@ async function fetchForecast(lat, lon) {
   document.getElementById("forecast").innerHTML = "";
   document.getElementById("forecast-title").classList.remove("hidden");
 
+
   for (let i = 0; i < 5; i++) {
     const item = data.list[i];
     const div = document.createElement("div");
@@ -73,6 +62,3 @@ async function fetchForecast(lat, lon) {
     document.getElementById("forecast").appendChild(div);
   }
 }
-
-
-
