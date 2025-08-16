@@ -1,4 +1,4 @@
-const apiKey = "18a3093fb68f6c1bead99825ac8034a1"; // 🔑 Get from https://openweathermap.org/api
+const apiKey = "18a3093fb68f6c1bead99825ac8034a1"; 
 
 async function getWeatherByCity() {
   const city = document.getElementById("cityInput").value;
@@ -42,8 +42,6 @@ function displayWeather(data) {
   document.getElementById("humidity").textContent = `💧 Humidity: ${data.main.humidity}%`;
   document.getElementById("wind").textContent = `💨 Wind: ${data.wind.speed} m/s`;
   document.getElementById("icon").src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-
-  // Change background dynamically
   const condition = data.weather[0].main.toLowerCase();
   if (condition.includes("cloud")) {
     document.body.style.background = "linear-gradient(to right, #bdc3c7, #2c3e50)";
@@ -64,7 +62,6 @@ async function fetchForecast(lat, lon) {
   document.getElementById("forecast").innerHTML = "";
   document.getElementById("forecast-title").classList.remove("hidden");
 
-  // Show next 5 forecast entries (3-hour interval)
   for (let i = 0; i < 5; i++) {
     const item = data.list[i];
     const div = document.createElement("div");
@@ -76,5 +73,6 @@ async function fetchForecast(lat, lon) {
     document.getElementById("forecast").appendChild(div);
   }
 }
+
 
 
