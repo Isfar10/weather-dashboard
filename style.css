@@ -1,5 +1,6 @@
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   background: linear-gradient(to right, #83a4d4, #b6fbff);
   margin: 0;
   padding: 0;
@@ -12,47 +13,72 @@ body {
 .app {
   text-align: center;
   background: white;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
-  width: 350px;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0px 5px 20px rgba(0,0,0,0.25);
+  width: 450px;  
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #0077ff;
 }
 
 .search input {
-  padding: 10px;
-  width: 200px;
-  border-radius: 5px;
+  padding: 12px;
+  width: 240px;
+  border-radius: 8px;
   border: 1px solid #ccc;
+  font-size: 1rem;
 }
 
 .search button, .app button {
-  padding: 10px 15px;
+  padding: 10px 20px;
   margin-top: 10px;
   border: none;
   background: #0077ff;
   color: white;
-  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.search button:hover, .app button:hover {
+  background: #005fcc;
 }
 
 .weather-card {
-  margin-top: 20px;
+  margin-top: 25px;
+}
+
+.weather-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
 }
 
 .weather-card img {
-  width: 80px;
+  width: 100px;
+}
+
+.weather-card p {
+  font-size: 1.2rem;
+  margin: 5px 0;
 }
 
 .forecast {
   display: flex;
   justify-content: space-around;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .forecast div {
   background: #f2f2f2;
-  padding: 8px;
-  border-radius: 10px;
+  padding: 10px;
+  border-radius: 12px;
+  font-size: 0.9rem;
 }
 
 .hidden {
